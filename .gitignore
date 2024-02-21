@@ -4,3 +4,6 @@ UnityProject/Temp
 UnityProject/UserSettings
 UnityProject/Logs
 .DS_Store
+UnityProject/UnityProject.sln
+UnityProject/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache
+UnityProject/Assembly-CSharp.csproj

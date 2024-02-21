@@ -27,9 +27,7 @@ namespace Script
                 }
                 
                 _ammunitionHandler.Ammunition = ammunition - 1;
-                
                 var newBullet = Instantiate(bullet, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
-                newBullet.TargetDirection = transform.forward;
                 newBullet.ReadyToFly = true;
             }
             
