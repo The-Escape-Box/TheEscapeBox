@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class DemonMovement : MonoBehaviour
@@ -6,6 +7,7 @@ public class DemonMovement : MonoBehaviour
     public Transform player; // Public variable to assign the player in the editor
     private NavMeshAgent agent;
     private Animator anim;
+    private bool isStunned = false;
 
     int hIdles;
     int hAngry;
@@ -74,5 +76,24 @@ public class DemonMovement : MonoBehaviour
         // Trigger grabs animation
         UpdateAnimation(false); // Stop any movement animation
         anim.SetBool(hGrabs, true);
+    }
+    
+    public void ApplyStunEffect(float stunTime)
+    {
+        if (!isStunned)
+        {
+            isStunned = true;
+            StartCoroutine(StunTimer(stunTime));
+            UpdateAnimation(true); // Stop any movement animation
+            // Add any additional logic like disabling movement, animations, etc.
+            agent.enabled = false;
+        }
+    }
+
+    private IEnumerator StunTimer(float stunTime)
+    {
+        yield return new WaitForSeconds(stunTime);
+        isStunned = false;
+        agent.enabled = true;
     }
 }

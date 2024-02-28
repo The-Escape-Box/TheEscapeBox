@@ -5,7 +5,10 @@ namespace Script
     public class AmmunitionHandler : MonoBehaviour
     {
         public int initialAmmunition = 5;
+        public float initialAmmunitionStunTime = 3F;
+        
         public int Ammunition { get; set; }
+        public float AmmunitionStunTime { get; set; }
 
         public static AmmunitionHandler Instance { get; private set; }
 
@@ -19,6 +22,7 @@ namespace Script
 
             Instance = this;
             Instance.Ammunition = initialAmmunition;
+            Instance.AmmunitionStunTime = initialAmmunitionStunTime;
         }
     }
 }
