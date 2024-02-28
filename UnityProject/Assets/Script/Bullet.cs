@@ -2,23 +2,45 @@ using UnityEngine;
 
 namespace Script
 {
-    public class Bullet: MonoBehaviour
+    public class Bullet : MonoBehaviour
     {
-    public float maxFlyTime = 5;
-    
-    public bool ReadyToFly { get; set; }
+        public float maxFlyTime = 5;
 
-    private void Update()
-    {
-        if (maxFlyTime < 0)
+        public bool ReadyToFly { get; set; }
+
+        private AmmunitionHandler _ammunitionHandler;
+
+        private void Start()
         {
-            Destroy(gameObject);
+            _ammunitionHandler = AmmunitionHandler.Instance;
         }
-        if (!ReadyToFly) return;
-        
-        transform.Translate(Vector3.forward);
-        maxFlyTime -= Time.deltaTime;
+
+        private void Update()
+        {
+            if (maxFlyTime < 0)
+            {
+                Destroy(gameObject);
+            }
+
+            if (!ReadyToFly) return;
+
+            transform.Translate(Vector3.forward);
+            maxFlyTime -= Time.deltaTime;
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                DemonMovement enemyController = other.gameObject.GetComponent<DemonMovement>();
+                if (enemyController != null)
+                {
+                    enemyController.ApplyStunEffect(_ammunitionHandler.AmmunitionStunTime);
+                }
+
+                Destroy(gameObject);
+            }
+        }
+
     }
-    }
-    
 }
