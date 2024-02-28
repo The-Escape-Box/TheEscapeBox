@@ -98,7 +98,8 @@ public class DemonMovement : MonoBehaviour
     private IEnumerator StunTimer(float stunTime)
     {
         yield return new WaitForSeconds(stunTime);
-        isStunned = false;
         agent.enabled = true;
+        
+        isStunned = false;
     }
 }
