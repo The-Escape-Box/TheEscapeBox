@@ -30,6 +30,7 @@ namespace Script
 
         private void OnCollisionEnter(Collision other)
         {
+            var bla = other.gameObject.tag;
             if (other.gameObject.CompareTag("Enemy"))
             {
                 DemonMovement enemyController = other.gameObject.GetComponent<DemonMovement>();

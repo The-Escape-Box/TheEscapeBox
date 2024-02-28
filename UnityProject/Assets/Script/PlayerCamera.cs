@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Script
@@ -13,6 +14,12 @@ namespace Script
         void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        private void OnDestroy()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         // Update is called once per frame
