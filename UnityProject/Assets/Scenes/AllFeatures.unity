@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12556,15 +12556,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5860179405602770273, guid: 5c72d53962bafde49891a8bf80d9b4b7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5860179405602770273, guid: 5c72d53962bafde49891a8bf80d9b4b7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5860179405602770273, guid: 5c72d53962bafde49891a8bf80d9b4b7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5860179405602770273, guid: 5c72d53962bafde49891a8bf80d9b4b7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19612,6 +19612,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1901306226473852196, guid: fb2464c8734554998b399ce672b03473, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 1950358592455628250, guid: fb2464c8734554998b399ce672b03473, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -19622,7 +19626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1950358592455628250, guid: fb2464c8734554998b399ce672b03473, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.54
+      value: -29.5
       objectReference: {fileID: 0}
     - target: {fileID: 1950358592455628250, guid: fb2464c8734554998b399ce672b03473, type: 3}
       propertyPath: m_LocalRotation.w
