@@ -31,6 +31,11 @@ public class DemonMovement : MonoBehaviour
 
     void Update()
     {
+        if (isStunned)
+        {
+            return;
+        }
+        
         // Set the destination of the NavMeshAgent to the player's position
         agent.destination = player.position;
 
