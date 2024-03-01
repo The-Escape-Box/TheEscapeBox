@@ -30,17 +30,15 @@ namespace Script
 
         private void OnCollisionEnter(Collision other)
         {
-            var bla = other.gameObject.tag;
-            if (other.gameObject.CompareTag("Enemy"))
+            if (!other.gameObject.CompareTag("Enemy")) return;
+            
+            DemonMovement enemyController = other.gameObject.GetComponent<DemonMovement>();
+            if (enemyController != null)
             {
-                DemonMovement enemyController = other.gameObject.GetComponent<DemonMovement>();
-                if (enemyController != null)
-                {
-                    enemyController.ApplyStunEffect(_ammunitionHandler.AmmunitionStunTime);
-                }
-
-                Destroy(gameObject);
+                enemyController.DealDamage(_ammunitionHandler.BulletDamage);
             }
+
+            Destroy(gameObject);
         }
 
     }
