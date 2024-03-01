@@ -7,6 +7,7 @@ public class DemonMovement : MonoBehaviour
     public Transform player; // Public variable to assign the player in the editor
     private NavMeshAgent agent;
     private Animator anim;
+    private bool isStunned = false;
 
     int hIdles;
     int hAngry;
@@ -29,7 +30,12 @@ public class DemonMovement : MonoBehaviour
     }
 
     void Update()
-    { 
+    {
+        if (isStunned)
+        {
+            return;
+        }
+        
         // Set the destination of the NavMeshAgent to the player's position
         agent.destination = player.position;
 
@@ -75,5 +81,25 @@ public class DemonMovement : MonoBehaviour
         // Trigger grabs animation
         UpdateAnimation(false); // Stop any movement animation
         anim.SetBool(hGrabs, true);
+    }
+    
+    public void ApplyStunEffect(float stunTime)
+    {
+        if (!isStunned)
+        {
+            isStunned = true;
+            StartCoroutine(StunTimer(stunTime));
+            UpdateAnimation(true); // Stop any movement animation
+            // Add any additional logic like disabling movement, animations, etc.
+            agent.enabled = false;
+        }
+    }
+
+    private IEnumerator StunTimer(float stunTime)
+    {
+        yield return new WaitForSeconds(stunTime);
+        agent.enabled = true;
+        
+        isStunned = false;
     }
 }
