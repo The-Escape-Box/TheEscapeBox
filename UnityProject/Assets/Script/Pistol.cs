@@ -12,7 +12,7 @@ namespace Script
         private void Start()
         {
             _ammunitionHandler = AmmunitionHandler.Instance;
-            _bulletSpawnPoint = transform.Find("Barrel").transform;
+            _bulletSpawnPoint = transform.Find("Slide").transform;
         }
 
         // Update is called once per frame
@@ -37,7 +37,9 @@ namespace Script
         private void LateUpdate()
         {
             // Update the rotation of the bullet spawn point to match the rotation of the camera
-            _bulletSpawnPoint.rotation = Camera.main.transform.rotation;
+            var transformRotation = Camera.main.transform.rotation;
+            transformRotation.y = transform.rotation.y - 180;
+            transform.rotation = transformRotation;
         }
     }
 }
