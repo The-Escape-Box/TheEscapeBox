@@ -12,7 +12,7 @@ namespace Script
         private void Start()
         {
             _ammunitionHandler = AmmunitionHandler.Instance;
-            _bulletSpawnPoint = transform.Find("Slide").transform;
+            _bulletSpawnPoint = transform.Find("BulletSpawnPoint").transform;
         }
 
         // Update is called once per frame
@@ -36,10 +36,9 @@ namespace Script
         // LateUpdate is called once per frame after Update
         private void LateUpdate()
         {
-            // Update the rotation of the bullet spawn point to match the rotation of the camera
-            var transformRotation = Camera.main.transform.rotation;
-            transformRotation.y = transform.rotation.y - 180;
-            transform.rotation = transformRotation;
+            // Example code using Euler angles
+            Vector3 playerViewEulerAngles = Camera.main.transform.eulerAngles;
+            transform.localEulerAngles = new Vector3(-playerViewEulerAngles.x, 0f, 0f);
         }
     }
 }
