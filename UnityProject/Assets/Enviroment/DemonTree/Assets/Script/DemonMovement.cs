@@ -77,7 +77,7 @@ public class DemonMovement : MonoBehaviour
         UpdateAnimation(false); // Stop any movement animation
         anim.SetBool(hGrabs, true);
     }
-
+    
     public void DealDamage(float damage)
     {
         _health -= damage;
@@ -88,4 +88,3 @@ public class DemonMovement : MonoBehaviour
         }
     }
 }
-

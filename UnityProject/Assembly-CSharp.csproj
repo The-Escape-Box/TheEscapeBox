@@ -62,9 +62,8 @@
   <ItemGroup>
     <Compile Include="Assets\Script\SceneLoader.cs" />
     <Compile Include="Assets\Script\PlayerCamera.cs" />
-    <Compile Include="Assets\Script\EnemyMovement.cs" />
     <Compile Include="Assets\Script\Pistol.cs" />
-    <Compile Include="Assets\Script\EnemyKillPlayer.cs" />
+    <Compile Include="Assets\Enviroment\DemonTree\Assets\Script\DemonMovement.cs" />
     <Compile Include="Assets\Script\Bullet.cs" />
     <Compile Include="Assets\Script\ChestScript.cs" />
     <Compile Include="Assets\Script\AmmunitionHandler.cs" />
