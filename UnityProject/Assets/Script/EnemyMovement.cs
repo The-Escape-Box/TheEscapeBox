@@ -15,6 +15,7 @@ public class DemonMovement : MonoBehaviour
     int hGrabs;
 
     public float attackDistance = 5f; // Distance at which the demon attacks
+    //test commit
     public float grabDistance = 2f;   // Distance at which the demon grabs the player
 
     void Start()
