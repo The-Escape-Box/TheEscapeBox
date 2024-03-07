@@ -32,7 +32,7 @@ namespace Script
         {
             if (!other.gameObject.CompareTag("Enemy")) return;
             
-            DemonMovement enemyController = other.gameObject.GetComponent<DemonMovement>();
+            EnemyMovement enemyController = other.gameObject.GetComponent<EnemyMovement>();
             if (enemyController != null)
             {
                 enemyController.DealDamage(_ammunitionHandler.BulletDamage);

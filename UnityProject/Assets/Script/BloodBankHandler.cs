@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 namespace Script
@@ -5,6 +7,7 @@ namespace Script
     public class BloodBankHandler : MonoBehaviour
     {
         public int initialBlood = 5;
+        public TMP_Text bloodText;
         
         public int Blood { get; set; }
 
@@ -20,6 +23,11 @@ namespace Script
 
             Instance = this;
             Instance.Blood = initialBlood;
+        }
+
+        private void Update()
+        {
+            bloodText.text = Blood.ToString();
         }
     }
 }
