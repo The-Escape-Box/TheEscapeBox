@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Script;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +9,8 @@ public class DemonMovement : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
     private float _health = 5F;
+    
+    private BloodBankHandler _bloodBankHandler;
 
     int hIdles;
     int hAngry;
@@ -27,6 +30,9 @@ public class DemonMovement : MonoBehaviour
         hAngry = Animator.StringToHash("Angry");
         hAttack = Animator.StringToHash("Attack");
         hGrabs = Animator.StringToHash("Grabs");
+        
+        // Set up global handler
+        _bloodBankHandler = BloodBankHandler.Instance;
     }
 
     void Update()
@@ -81,6 +87,7 @@ public class DemonMovement : MonoBehaviour
     public void DealDamage(float damage)
     {
         _health -= damage;
+        _bloodBankHandler.Blood += 1;
 
         if (_health <= 0)
         {
