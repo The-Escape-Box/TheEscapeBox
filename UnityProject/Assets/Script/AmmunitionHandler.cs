@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace Script
@@ -7,6 +8,8 @@ namespace Script
         public int initialAmmunition = 5;
         public float initialAmmunitionStunTime = 3F;
         public float initialBulletDamage = 1F;
+        
+        public TMP_Text ammunitionText;
         
         public int Ammunition { get; set; }
         public float AmmunitionStunTime { get; set; }
@@ -26,6 +29,11 @@ namespace Script
             Instance.Ammunition = initialAmmunition;
             Instance.AmmunitionStunTime = initialAmmunitionStunTime;
             Instance.BulletDamage = initialBulletDamage;
+        }
+        
+        private void Update()
+        {
+            ammunitionText.text = Ammunition.ToString();
         }
     }
 }

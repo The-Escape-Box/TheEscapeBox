@@ -18,19 +18,28 @@ namespace Script
         public void Heal(int bloodCost)
         {
             var blood = _bloodBankHandler.Blood;
-            if (blood > bloodCost)
-            { 
-                _playerHealthHandler.Heal(50);
-            }
+            if (blood <= bloodCost) return;
+            
+            _playerHealthHandler.Heal(50);
+            _bloodBankHandler.Blood -= bloodCost;
         }
 
         public void BuyAmmunition(int bloodCost)
         {
             var blood = _bloodBankHandler.Blood;
-            if (blood > bloodCost)
-            {
-                _ammunitionHandler.Ammunition++;
-            }        
+            if (blood <= bloodCost) return;
+            
+            _ammunitionHandler.Ammunition++;
+            _bloodBankHandler.Blood -= bloodCost;
+        }        
+        
+        public void UpgradeDamage(int bloodCost)
+        {
+            var blood = _bloodBankHandler.Blood;
+            if (blood <= bloodCost) return;
+            
+            _ammunitionHandler.BulletDamage++;
+            _bloodBankHandler.Blood -= bloodCost;
         }
     }
 }
