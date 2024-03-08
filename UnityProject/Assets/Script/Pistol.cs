@@ -18,18 +18,22 @@ namespace Script
         // Update is called once per frame
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Time.timeScale == 0)
             {
-                var ammunition = _ammunitionHandler.Ammunition;
-                if (ammunition == 0)
-                {
-                    return;
-                }
-
-                _ammunitionHandler.Ammunition = ammunition - 1;
-                var newBullet = Instantiate(bullet, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
-                newBullet.ReadyToFly = true;
+                return;
             }
+
+            if (!Input.GetKeyDown(KeyCode.Mouse0)) return;
+            
+            var ammunition = _ammunitionHandler.Ammunition;
+            if (ammunition == 0)
+            {
+                return;
+            }
+
+            _ammunitionHandler.Ammunition = ammunition - 1;
+            var newBullet = Instantiate(bullet, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
+            newBullet.ReadyToFly = true;
 
         }
 
