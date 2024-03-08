@@ -58188,6 +58188,90 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 25616219818223638, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 25616219818223638, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 25616219818223638, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 25616219818223638, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 25616219818223638, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 25616219818223638, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -46
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183879357137776588, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183879357137776588, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183879357137776588, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183879357137776588, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183879357137776588, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3700154
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183879357137776588, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3700154
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183879357137776588, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3700154
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183879357137776588, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183879357137776588, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183879357137776588, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541762402067753061, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541762402067753061, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541762402067753061, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541762402067753061, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541762402067753061, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 6574222948696160370, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
       propertyPath: m_Name
       value: UI
