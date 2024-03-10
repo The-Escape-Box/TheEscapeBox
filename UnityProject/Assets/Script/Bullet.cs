@@ -5,9 +5,7 @@ namespace Script
     public class Bullet : MonoBehaviour
     {
         public float maxFlyTime = 5;
-
         public bool ReadyToFly { get; set; }
-
         private AmmunitionHandler _ammunitionHandler;
 
         private void Start()
@@ -20,25 +18,36 @@ namespace Script
             if (maxFlyTime < 0)
             {
                 Destroy(gameObject);
+                return;
             }
 
             if (!ReadyToFly) return;
 
-            transform.Translate(Vector3.forward);
+            transform.Translate(Vector3.forward * Time.deltaTime * _ammunitionHandler.BulletSpeed);
             maxFlyTime -= Time.deltaTime;
         }
 
         private void OnCollisionEnter(Collision other)
         {
             if (!other.gameObject.CompareTag("Enemy")) return;
-            
-            EnemyMovement enemyController = other.gameObject.GetComponent<EnemyMovement>();
-            if (enemyController != null)
+
+            // Check if the collided object is an EnemyMovementTree
+            EnemyMovementTree enemyControllerTree = other.gameObject.GetComponent<EnemyMovementTree>();
+            if (enemyControllerTree != null)
             {
-                enemyController.DealDamage(_ammunitionHandler.BulletDamage);
+                enemyControllerTree.DealDamage(_ammunitionHandler.BulletDamage);
+                Destroy(gameObject);
+                return; // Exit early to avoid unnecessary checks
             }
 
-            Destroy(gameObject);
+            // Check if the collided object is an EnemyMovementZombie
+            EnemyMovementZombie enemyControllerZombie = other.gameObject.GetComponent<EnemyMovementZombie>();
+            if (enemyControllerZombie != null)
+            {
+                enemyControllerZombie.DealDamage(_ammunitionHandler.BulletDamage);
+                Destroy(gameObject);
+                return; // Exit early to avoid unnecessary checks
+            }
         }
 
     }
