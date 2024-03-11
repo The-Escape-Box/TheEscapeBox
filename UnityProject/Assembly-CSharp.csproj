@@ -65,6 +65,7 @@
     <Compile Include="Assets\Script\PlayerCamera.cs" />
     <Compile Include="Assets\Script\EnemyMovement.cs" />
     <Compile Include="Assets\Script\PlayerHealthHandler.cs" />
+    <Compile Include="Assets\Script\FlashlightController.cs" />
     <Compile Include="Assets\Script\EnemyKillPlayer.cs" />
     <Compile Include="Assets\Script\Pistol.cs" />
     <Compile Include="Assets\Script\ShopScript.cs" />
