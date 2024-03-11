@@ -63,15 +63,15 @@
     <Compile Include="Assets\Script\SceneLoader.cs" />
     <Compile Include="Assets\Script\UpgradeService.cs" />
     <Compile Include="Assets\Script\PlayerCamera.cs" />
-    <Compile Include="Assets\Script\EnemyMovementTree.cs" />
+    <Compile Include="Assets\Script\EnemyMovement.cs" />
     <Compile Include="Assets\Script\PlayerHealthHandler.cs" />
+    <Compile Include="Assets\Script\FlashlightController.cs" />
     <Compile Include="Assets\Script\EnemyKillPlayer.cs" />
     <Compile Include="Assets\Script\Pistol.cs" />
     <Compile Include="Assets\Script\ShopScript.cs" />
     <Compile Include="Assets\Script\Bullet.cs" />
     <Compile Include="Assets\Script\ChestScript.cs" />
     <Compile Include="Assets\Script\AmmunitionHandler.cs" />
-    <Compile Include="Assets\Script\EnemyMovementZombie.cs" />
     <Compile Include="Assets\Script\PlayerMovement.cs" />
     <Compile Include="Assets\Script\BloodBankHandler.cs" />
     <Compile Include="Assets\Script\TypeWriterEffect.cs" />
