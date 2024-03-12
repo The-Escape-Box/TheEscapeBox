@@ -5,14 +5,15 @@ namespace Script
     public class Pistol : MonoBehaviour
     {
         public Bullet bullet;
+        public Transform bulletSpawnPoint;
+        
         private AmmunitionHandler _ammunitionHandler;
-        private Transform _bulletSpawnPoint;
 
         // Start is called before the first frame update
         private void Start()
         {
             _ammunitionHandler = AmmunitionHandler.Instance;
-            _bulletSpawnPoint = transform.Find("BulletSpawnPoint").transform;
+            bulletSpawnPoint = transform.Find("BulletSpawnPoint").transform;
         }
 
         // Update is called once per frame
@@ -32,7 +33,7 @@ namespace Script
             }
 
             _ammunitionHandler.Ammunition = ammunition - 1;
-            var newBullet = Instantiate(bullet, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
+            var newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             newBullet.ReadyToFly = true;
 
         }
@@ -42,7 +43,7 @@ namespace Script
         {
             // Example code using Euler angles
             Vector3 playerViewEulerAngles = Camera.main.transform.eulerAngles;
-            transform.localEulerAngles = new Vector3(-playerViewEulerAngles.x, 0f, 0f);
+            bulletSpawnPoint.localEulerAngles = new Vector3(playerViewEulerAngles.x, 0f, 0f);
         }
     }
 }
