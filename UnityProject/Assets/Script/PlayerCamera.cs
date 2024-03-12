@@ -14,6 +14,7 @@ namespace Script
         void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         private void OnDestroy()
