@@ -9,7 +9,7 @@ namespace Script
         private AmmunitionHandler _ammunitionHandler;
         private Transform _bulletSpawnPoint;
         private AudioSource _audioSource; // Reference to the AudioSource component
-                
+
         // Start is called before the first frame update
         private void Start()
         {
