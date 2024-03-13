@@ -13,7 +13,6 @@ namespace Script
         private void Start()
         {
             _ammunitionHandler = AmmunitionHandler.Instance;
-            bulletSpawnPoint = transform.Find("BulletSpawnPoint").transform;
         }
 
         // Update is called once per frame
