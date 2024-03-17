@@ -1,0 +1,2 @@
+The first puzzel is the "Unleash the power of electricity!"
+The player need to find the TransformerBox and when he found it, the light in game is going to turn on. 
