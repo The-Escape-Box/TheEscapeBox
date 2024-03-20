@@ -3,9 +3,12 @@ using UnityEngine;
 public class FlashlightController : MonoBehaviour
 {
 
+    public GameObject hand;
+    
     private void LateUpdate()
     {
         Vector3 playerViewEulerAngles = Camera.main.transform.eulerAngles;
-        transform.localEulerAngles = new Vector3(0F, 0f, -playerViewEulerAngles.x + 180);
+        
+        hand.transform.localEulerAngles = new Vector3(-90F, -playerViewEulerAngles.x, 0);
     }
 }

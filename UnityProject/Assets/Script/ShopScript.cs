@@ -6,7 +6,8 @@ namespace Script
     public class ShopScript : MonoBehaviour
     {
         private GameObject _shop;
-        private void Start()
+
+        private void Awake()
         {
             _shop = transform.GetChild(0).gameObject;
             _shop.SetActive(false);

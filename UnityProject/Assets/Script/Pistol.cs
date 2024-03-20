@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 namespace Script
@@ -6,7 +7,9 @@ namespace Script
     {
         public Bullet bullet;
         public AudioClip shootingSound; // Sound clip for shooting
-        private AmmunitionHandler _ammunitionHandler;
+        public GameObject hand;
+        public GameObject arm;
+
         private Transform _bulletSpawnPoint;
         private AudioSource _audioSource; // Reference to the AudioSource component
 
@@ -50,7 +53,10 @@ namespace Script
         {
             // Example code using Euler angles
             Vector3 playerViewEulerAngles = Camera.main.transform.eulerAngles;
-            bulletSpawnPoint.localEulerAngles = new Vector3(playerViewEulerAngles.x, 0f, 0f);
+            float x = playerViewEulerAngles.x;
+            bulletSpawnPoint.localEulerAngles = new Vector3(x, 180f, 0f);
+            hand.transform.localEulerAngles = new Vector3(90F, -x - 20, 0);
+            arm.transform.localEulerAngles = new Vector3(0F, -x + 60, 10F);
         }
     }
 }
