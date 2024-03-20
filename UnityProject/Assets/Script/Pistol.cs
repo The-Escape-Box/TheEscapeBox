@@ -7,17 +7,16 @@ namespace Script
     {
         public Bullet bullet;
         public AudioClip shootingSound; // Sound clip for shooting
-        public GameObject hand;
         public Transform bulletSpawnPoint;
         public GameObject arm;
 
+        private AmmunitionHandler _ammunitionHandler; // Reference to the AudioSource component
         private AudioSource _audioSource; // Reference to the AudioSource component
 
         // Start is called before the first frame update
         private void Start()
         {
             _ammunitionHandler = AmmunitionHandler.Instance;
-            _bulletSpawnPoint = transform.Find("BulletSpawnPoint").transform;
             _audioSource = GetComponent<AudioSource>(); // Get reference to AudioSource component
         }
 

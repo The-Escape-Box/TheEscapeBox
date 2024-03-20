@@ -59849,6 +59849,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 175562, guid: 5e42dc4ec97974712b9c23d21ccbeea0, type: 3}
+      propertyPath: m_Name
+      value: Pistol
+      objectReference: {fileID: 0}
     - target: {fileID: 1893300535077127164, guid: 5e42dc4ec97974712b9c23d21ccbeea0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59893,6 +59897,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6378266775415330014, guid: 5e42dc4ec97974712b9c23d21ccbeea0, type: 3}
+      propertyPath: shootingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d44129df6022deb4aa487fd31e3a208c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
