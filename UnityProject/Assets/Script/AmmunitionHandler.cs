@@ -8,7 +8,7 @@ namespace Script
         public int initialAmmunition = 5;
         public float initialAmmunitionStunTime = 3F;
         public float initialBulletDamage = 1F;
-        public float initialBulletSpeed = 10F; // Add this line
+        public float initialBulletSpeed = 100F; // Add this line
 
         public TMP_Text ammunitionText;
 

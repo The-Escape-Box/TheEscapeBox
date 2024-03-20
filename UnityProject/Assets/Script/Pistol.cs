@@ -8,9 +8,9 @@ namespace Script
         public Bullet bullet;
         public AudioClip shootingSound; // Sound clip for shooting
         public GameObject hand;
+        public Transform bulletSpawnPoint;
         public GameObject arm;
 
-        private Transform _bulletSpawnPoint;
         private AudioSource _audioSource; // Reference to the AudioSource component
 
         // Start is called before the first frame update
@@ -51,12 +51,17 @@ namespace Script
         // LateUpdate is called once per frame after Update
         private void LateUpdate()
         {
-            // Example code using Euler angles
-            Vector3 playerViewEulerAngles = Camera.main.transform.eulerAngles;
-            float x = playerViewEulerAngles.x;
-            bulletSpawnPoint.localEulerAngles = new Vector3(x, 180f, 0f);
-            hand.transform.localEulerAngles = new Vector3(90F, -x - 20, 0);
-            arm.transform.localEulerAngles = new Vector3(0F, -x + 60, 10F);
+            
+            // Get the forward direction of the camera
+            Vector3 playerViewDirection = Camera.main.transform.forward;
+
+            // Calculate the rotation needed to align the bullet spawn point with the player's view direction
+            Quaternion targetRotation = Quaternion.LookRotation(playerViewDirection);
+        
+            bulletSpawnPoint.rotation = targetRotation;
+            
+            float playerViewEulerAngles = Camera.main.transform.eulerAngles.x;
+            arm.transform.localEulerAngles = new Vector3(0F, -playerViewEulerAngles + 60, 0);
         }
     }
 }

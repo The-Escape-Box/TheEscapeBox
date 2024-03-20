@@ -46963,6 +46963,10 @@ PrefabInstance:
       propertyPath: ammunitionText
       value: 
       objectReference: {fileID: 1599385572}
+    - target: {fileID: 1577304395186617383, guid: bfede067479e54823b70870096443030, type: 3}
+      propertyPath: initialBulletSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2911608854810197592, guid: bfede067479e54823b70870096443030, type: 3}
       propertyPath: m_Name
       value: AmmunitionHandler
@@ -59888,18 +59892,6 @@ PrefabInstance:
     - target: {fileID: 3126273814456692909, guid: 5e42dc4ec97974712b9c23d21ccbeea0, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7045167043075186719, guid: 5e42dc4ec97974712b9c23d21ccbeea0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 7045167043075186719, guid: 5e42dc4ec97974712b9c23d21ccbeea0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.381
-      objectReference: {fileID: 0}
-    - target: {fileID: 7045167043075186719, guid: 5e42dc4ec97974712b9c23d21ccbeea0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.731
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
