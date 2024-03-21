@@ -40,10 +40,18 @@ namespace Script
 
         void Update()
         {
-            // Set the destination of the NavMeshAgent to the player's position if the agent is enabled
-            if (agent.enabled)
+            var distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            if (distanceToPlayer < grabDistance)
             {
+                agent.enabled = false;
+            }
+            else
+            {
+                agent.enabled = true;
                 agent.destination = player.position;
+            }
+            
+            // Set the destination of the NavMeshAgent to the player's position if the agent is enabled
 
                 // Check the distance between enemy and player
                 if (Vector3.Distance(transform.position, player.position) < closeDistanceThreshold)
@@ -55,7 +63,6 @@ namespace Script
                     }
                 }
                 // Determine which animation to play based on distance
-                var distanceToPlayer = Vector3.Distance(transform.position, player.position);
                 if (distanceToPlayer <= attackDistance)
                 {
                     // Player is close enough to attack
@@ -71,11 +78,6 @@ namespace Script
                     // Player is far, return to idle state
                     UpdateAnimation(false);
                 }
-            }
-            else
-            {
-                // Agent is disabled, so don't set destination or perform any other actions
-            }
         }
 
 

@@ -11,6 +11,8 @@ namespace Script
         private NavMeshAgent agent;
         private float _health = 5F;
         private BloodBankHandler _bloodBankHandler;
+        public float grabDistance = 2f;   // Distance at which the demon grabs the player
+
 
         void Start()
         {
@@ -21,7 +23,16 @@ namespace Script
 
         void Update()
         {
-            agent.destination = player.position;
+            var distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            if (distanceToPlayer < grabDistance)
+            {
+                agent.enabled = false;
+            }
+            else
+            {
+                agent.enabled = true;
+                agent.destination = player.position;
+            }
 
             // Check the distance between enemy and player
             if (Vector3.Distance(transform.position, player.position) < closeDistanceThreshold)
