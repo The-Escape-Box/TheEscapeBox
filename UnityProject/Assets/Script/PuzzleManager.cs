@@ -10,7 +10,7 @@ public class PuzzleManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "PlayerWithPistol")
+        if (collision.gameObject.name == "Player")
         {
             // Change the color of spotlights to FFD580
             foreach (Light spotlight in spotlights)
