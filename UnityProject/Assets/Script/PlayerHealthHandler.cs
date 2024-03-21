@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Script
@@ -30,7 +31,7 @@ namespace Script
 
             Instance = this;
             Instance.Health = health;
-            Instance.MaxHealth = health;
+            Instance.MaxHealth = maxHealth;
             Instance.HealthBar = healthBar;
             Instance.HealthBarText = healthBarText;
         }
@@ -38,13 +39,22 @@ namespace Script
         // Update is called once per frame
         void Update()
         {
-            HealthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
-            HealthBarText.text = health.ToString(CultureInfo.InvariantCulture) + "/" + maxHealth.ToString(CultureInfo.InvariantCulture);
+            HealthBar.fillAmount = Mathf.Clamp(Health / MaxHealth, 0, 1);
+            HealthBarText.text = Health.ToString(CultureInfo.InvariantCulture) + "/" + MaxHealth.ToString(CultureInfo.InvariantCulture);
         }
 
         public void Heal(int healAmount)
         {
-            Health = Math.Min(100, Health + 50);
+            Health = Math.Min(100, Health + healAmount);
         }
+        
+        public void DealDamage(float damage)
+        {
+            Health -= damage;
+            if (Health > 0) return;
+            
+            Destroy(gameObject);
+            SceneManager.LoadScene(3);
+        }    
     }
 }

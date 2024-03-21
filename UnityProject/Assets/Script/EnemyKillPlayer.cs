@@ -1,36 +1,39 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Collections;
+using Script;
 
-public class EnemyKillPlayer : MonoBehaviour
-{
-    public float detectionRange = 3f; // Adjust as needed
-    public float sceneChangeDelay = 1f; // Time delay before changing the scene
-    public GameObject player;
-    private bool playerKilled = false;
+public class EnemyKillPlayer : MonoBehaviour{
+    
+    
+    public float damageAmount = 10f; // Amount of damage to deal
+    public float damageInterval = 1f; // Time interval between each damage dealing
+    public float attackRange = 2f; // Range at which the damage will be dealt
+    
+    private float _lastDamageTime; // Time of last damage dealt
+    private GameObject _player;
+    private PlayerHealthHandler _playerHealthHandler;
+
+    private void Awake()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _playerHealthHandler = PlayerHealthHandler.Instance;
+    }
 
     private void Update()
     {
-        // Check the distance between enemy and player
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-
-        // If player is within detection range, kill player
-        if (distance <= detectionRange && !playerKilled)
+        if (Time.time - _lastDamageTime > damageInterval)
         {
-            KillPlayer();
+            DealDamageToPlayer();
         }
     }
-
-    private void KillPlayer()
+    
+    private void DealDamageToPlayer()
     {
-        player.SetActive(false);
-        playerKilled = true;
-        StartCoroutine(ChangeSceneAfterDelay(sceneChangeDelay)); // Change scene after the specified delay
-    }
-
-    private IEnumerator ChangeSceneAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(3); 
+        var distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
+        // Check if the player is within attack range
+        
+        if (distanceToPlayer > attackRange) return;
+        
+        _playerHealthHandler.DealDamage(damageAmount);
+        _lastDamageTime = Time.time;
     }
 }

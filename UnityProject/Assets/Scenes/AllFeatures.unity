@@ -12853,6 +12853,26 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1253119262}
   m_SourcePrefab: {fileID: 100100000, guid: f1422f5c6e1457147a73440f96e079ac, type: 3}
+--- !u!1 &434847177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5462324137239526807, guid: d78c3aca7c5239f47894f57fc35b8c18, type: 3}
+  m_PrefabInstance: {fileID: 1282263704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &434847183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434847177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6213e5fcab53646835d706cfe97fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 10
+  damageInterval: 1
+  attackRange: 2
 --- !u!1 &435493578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: f1422f5c6e1457147a73440f96e079ac, type: 3}
@@ -17349,6 +17369,33 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &566572811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566572799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21b9aae2a4c74530ad6b4ac8a174f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  healthBar: {fileID: 568012926}
+  healthBarText: {fileID: 726813861}
+--- !u!114 &568012926 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5380622503600764661, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+  m_PrefabInstance: {fileID: 4782845245120878045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &569520616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21047,6 +21094,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3126273814456692909, guid: 5e42dc4ec97974712b9c23d21ccbeea0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 566572807}
+    - targetCorrespondingSourceObject: {fileID: 3126273814456692909, guid: 5e42dc4ec97974712b9c23d21ccbeea0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 566572811}
   m_SourcePrefab: {fileID: 100100000, guid: 5e42dc4ec97974712b9c23d21ccbeea0, type: 3}
 --- !u!4 &693652428 stripped
 Transform:
@@ -21202,9 +21252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6213e5fcab53646835d706cfe97fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 1
-  sceneChangeDelay: 1
-  player: {fileID: 566572799}
+  damageAmount: 10
+  damageInterval: 1
+  attackRange: 2
 --- !u!1001 &695127294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22165,6 +22215,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d22648c610059645bf21e118d5c39df, type: 3}
+--- !u!114 &726813861 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5495503413767299965, guid: 8c97d6281f85949a9a641b488e811925, type: 3}
+  m_PrefabInstance: {fileID: 4782845245120878045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &726994194 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 34b2d1dd2a655044baffd5492ce00b25, type: 3}
@@ -37280,7 +37341,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5462324137239526807, guid: d78c3aca7c5239f47894f57fc35b8c18, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 434847183}
   m_SourcePrefab: {fileID: 100100000, guid: d78c3aca7c5239f47894f57fc35b8c18, type: 3}
 --- !u!1001 &1283626164
 PrefabInstance:
