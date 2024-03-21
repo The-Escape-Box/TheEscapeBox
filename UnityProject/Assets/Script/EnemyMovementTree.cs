@@ -9,7 +9,9 @@ namespace Script
         private NavMeshAgent agent;
         private Animator anim;
         private float _health = 5F;
-    
+        public float closeDistanceThreshold = 3f; // Distance threshold for playing sound effect
+        public AudioSource audioSource; // Reference to the assigned AudioSource component
+
         private BloodBankHandler _bloodBankHandler;
 
         int hIdles;
@@ -24,6 +26,7 @@ namespace Script
         {
             agent = GetComponent<NavMeshAgent>();
             anim = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>(); // Assign the AudioSource component
 
             // Set up hash IDs for animation states
             hIdles = Animator.StringToHash("Idles");
@@ -37,6 +40,7 @@ namespace Script
 
         void Update()
         {
+            agent.destination = player.position;
             var distanceToPlayer = Vector3.Distance(transform.position, player.position);
             if (distanceToPlayer < grabDistance)
             {
@@ -48,8 +52,16 @@ namespace Script
             }
             
             // Set the destination of the NavMeshAgent to the player's position
-            agent.destination = player.position;
-            
+           
+            // Check the distance between enemy and player
+            if (Vector3.Distance(transform.position, player.position) < closeDistanceThreshold)
+            {
+                // Play the sound effect if player is too close
+                if (audioSource != null && !audioSource.isPlaying)
+                {
+                    audioSource.Play(); // Assuming the AudioSource is set up to play the sound effect
+                }
+            }
             // Determine which animation to play based on distance
             if (distanceToPlayer <= attackDistance)
             {
