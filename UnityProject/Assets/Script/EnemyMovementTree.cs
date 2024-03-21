@@ -40,45 +40,44 @@ namespace Script
 
         void Update()
         {
-            agent.destination = player.position;
-            var distanceToPlayer = Vector3.Distance(transform.position, player.position);
-            if (distanceToPlayer < grabDistance)
+            // Set the destination of the NavMeshAgent to the player's position if the agent is enabled
+            if (agent.enabled)
             {
-                agent.enabled = false;
-            }
-            else
-            { 
-                agent.enabled = true;
-            }
-            
-            // Set the destination of the NavMeshAgent to the player's position
-           
-            // Check the distance between enemy and player
-            if (Vector3.Distance(transform.position, player.position) < closeDistanceThreshold)
-            {
-                // Play the sound effect if player is too close
-                if (audioSource != null && !audioSource.isPlaying)
+                agent.destination = player.position;
+
+                // Check the distance between enemy and player
+                if (Vector3.Distance(transform.position, player.position) < closeDistanceThreshold)
                 {
-                    audioSource.Play(); // Assuming the AudioSource is set up to play the sound effect
+                    // Play the sound effect if player is too close
+                    if (audioSource != null && !audioSource.isPlaying)
+                    {
+                        audioSource.Play(); // Assuming the AudioSource is set up to play the sound effect
+                    }
+                }
+                // Determine which animation to play based on distance
+                var distanceToPlayer = Vector3.Distance(transform.position, player.position);
+                if (distanceToPlayer <= attackDistance)
+                {
+                    // Player is close enough to attack
+                    Attack();
+                }
+                else if (distanceToPlayer <= grabDistance)
+                {
+                    // Player is too close, use Grabs animation
+                    Grabs();
+                }
+                else
+                {
+                    // Player is far, return to idle state
+                    UpdateAnimation(false);
                 }
             }
-            // Determine which animation to play based on distance
-            if (distanceToPlayer <= attackDistance)
-            {
-                // Player is close enough to attack
-                Attack();
-            }
-            else if (distanceToPlayer <= grabDistance)
-            {
-                // Player is too close, use Grabs animation
-                Grabs();
-            }
             else
             {
-                // Player is far, return to idle state
-                UpdateAnimation(false);
+                // Agent is disabled, so don't set destination or perform any other actions
             }
         }
+
 
         void UpdateAnimation(bool isMoving)
         {
