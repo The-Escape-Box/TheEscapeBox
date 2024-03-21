@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace Script
 {
@@ -9,7 +10,8 @@ namespace Script
         private NavMeshAgent agent;
         private float _health = 5F;
         private BloodBankHandler _bloodBankHandler;
-
+        
+        public float moveRange = 1f; // Range at which the damage will be dealt
 
         void Start()
         {
@@ -19,6 +21,14 @@ namespace Script
 
         void Update()
         {
+            var distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            if (distanceToPlayer < moveRange)
+            {
+                agent.enabled = false;
+                return;
+            }
+            agent.enabled = true;
+            
             agent.destination = player.position;
         }
 

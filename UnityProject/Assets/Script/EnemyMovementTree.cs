@@ -37,12 +37,19 @@ namespace Script
 
         void Update()
         {
+            var distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            if (distanceToPlayer < grabDistance)
+            {
+                agent.enabled = false;
+            }
+            else
+            { 
+                agent.enabled = true;
+            }
+            
             // Set the destination of the NavMeshAgent to the player's position
             agent.destination = player.position;
-
-            // Check distance to player
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
+            
             // Determine which animation to play based on distance
             if (distanceToPlayer <= attackDistance)
             {
