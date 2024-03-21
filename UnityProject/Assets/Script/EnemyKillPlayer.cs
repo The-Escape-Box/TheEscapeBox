@@ -12,7 +12,7 @@ public class EnemyKillPlayer : MonoBehaviour{
     private GameObject _player;
     private PlayerHealthHandler _playerHealthHandler;
 
-    private void Awake()
+    private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerHealthHandler = PlayerHealthHandler.Instance;
