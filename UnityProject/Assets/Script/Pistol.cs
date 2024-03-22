@@ -40,7 +40,7 @@ namespace Script
 
             // Play shooting sound via the AudioSource component
      
-            if (audioSource != null && !audioSource.isPlaying)
+            if (audioSource != null)
             {
                 audioSource.Play(); // Assuming the AudioSource is set up to play the sound effect
             }
