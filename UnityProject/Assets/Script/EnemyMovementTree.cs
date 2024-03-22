@@ -33,53 +33,48 @@ namespace Script
             hAngry = Animator.StringToHash("Angry");
             hAttack = Animator.StringToHash("Attack");
             hGrabs = Animator.StringToHash("Grabs");
-        
+
             // Set up global handler
             _bloodBankHandler = BloodBankHandler.Instance;
         }
 
         void Update()
         {
+            // Check if the agent is stopped (grabbing player), if so, return
+            if (agent.isStopped)
+                return;
+
+            // Set the destination of the NavMeshAgent to the player's position
+            agent.SetDestination(player.position);
+
+            // Check the distance between enemy and player
             var distanceToPlayer = Vector3.Distance(transform.position, player.position);
-            if (distanceToPlayer < grabDistance)
+            if (distanceToPlayer < closeDistanceThreshold)
             {
-                agent.enabled = false;
+                // Play the sound effect if player is too close
+                if (audioSource != null && !audioSource.isPlaying)
+                {
+                    audioSource.Play(); // Assuming the AudioSource is set up to play the sound effect
+                }
+            }
+
+            // Determine which animation to play based on distance
+            if (distanceToPlayer <= attackDistance)
+            {
+                // Player is close enough to attack
+                Attack();
+            }
+            else if (distanceToPlayer <= grabDistance)
+            {
+                // Player is too close, use Grabs animation
+                Grabs();
             }
             else
             {
-                agent.enabled = true;
-                agent.destination = player.position;
+                // Player is far, return to idle state
+                UpdateAnimation(true); // Start moving animation
             }
-            
-            // Set the destination of the NavMeshAgent to the player's position if the agent is enabled
-
-                // Check the distance between enemy and player
-                if (Vector3.Distance(transform.position, player.position) < closeDistanceThreshold)
-                {
-                    // Play the sound effect if player is too close
-                    if (audioSource != null && !audioSource.isPlaying)
-                    {
-                        audioSource.Play(); // Assuming the AudioSource is set up to play the sound effect
-                    }
-                }
-                // Determine which animation to play based on distance
-                if (distanceToPlayer <= attackDistance)
-                {
-                    // Player is close enough to attack
-                    Attack();
-                }
-                else if (distanceToPlayer <= grabDistance)
-                {
-                    // Player is too close, use Grabs animation
-                    Grabs();
-                }
-                else
-                {
-                    // Player is far, return to idle state
-                    UpdateAnimation(false);
-                }
         }
-
 
         void UpdateAnimation(bool isMoving)
         {
@@ -116,4 +111,3 @@ namespace Script
         }
     }
 }
-

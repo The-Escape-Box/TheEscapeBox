@@ -4,15 +4,18 @@ using TMPro;
 
 public class PuzzleHint : MonoBehaviour
 {
-    public string fullText;
+    private string fullText = "Unleash the power of electricity!";
     private TextMeshProUGUI textComponent;
+    private Coroutine textCoroutine;
 
     void Start()
     {
         textComponent = GetComponent<TextMeshProUGUI>();
-        StartCoroutine(DisplayTextRoutine());
+        // Start the coroutine once at the beginning
+        textCoroutine = StartCoroutine(DisplayTextRoutine());
     }
 
+    // Coroutine to display text
     IEnumerator DisplayTextRoutine()
     {
         while (true)
@@ -31,7 +34,7 @@ public class PuzzleHint : MonoBehaviour
             textComponent.text = "";
 
             // Wait for 30 seconds before displaying text again
-            yield return new WaitForSeconds(30f);
+            yield return new WaitForSeconds(10f);
         }
     }
 
@@ -40,5 +43,18 @@ public class PuzzleHint : MonoBehaviour
     {
         // Disable the text component
         textComponent.enabled = false;
+    }
+
+    // Method to set the text dynamically
+    public void SetText(string newText)
+    {
+        // Update the fullText variable with the provided text
+        fullText = newText;
+        // Reset the text displayed
+        textComponent.text = "";
+        // Restart the coroutine to immediately display the new text
+        if (textCoroutine != null)
+            StopCoroutine(textCoroutine);
+        textCoroutine = StartCoroutine(DisplayTextRoutine());
     }
 }

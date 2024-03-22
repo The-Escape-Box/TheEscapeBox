@@ -68,7 +68,6 @@ namespace Script
 
             controller.Move(velocity * Time.deltaTime);
         }
-
         private void HandleAnimations()
         {
             if (!Input.anyKey)
@@ -111,4 +110,5 @@ namespace Script
                 anim.SetBool(_hWalkBack, true);            }
         }
     }
+    
 }
