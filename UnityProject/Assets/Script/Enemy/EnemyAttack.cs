@@ -3,20 +3,23 @@ using UnityEngine;
 
 namespace Script.Enemy
 {
-    public class EnemyAttak : MonoBehaviour
+    public class EnemyAttack : MonoBehaviour
     {
-        public float damageAmount = 10f; // Amount of damage to deal
-        public float damageInterval = 1f; // Time interval between each damage dealing
-        public float attackRange = 2f; // Range at which the damage will be dealt
+        [SerializeField] private float damage = 10f;
+        [SerializeField] private float damageInterval = 1f;
+        [SerializeField] private float attackRange = 2f;
 
-        private float _lastDamageTime; // Time of last damage dealt
+        private float _lastDamageTime;
         private GameObject _player;
         private PlayerHealthHandler _playerHealthHandler;
+        private EnemySound _sound;
 
         private void Start()
         {
             _player = GameObject.FindGameObjectWithTag("Player");
             _playerHealthHandler = PlayerHealthHandler.Instance;
+
+            _sound = GetComponent<EnemySound>();
         }
 
         private void Update()
@@ -27,11 +30,12 @@ namespace Script.Enemy
         private void DealDamageToPlayer()
         {
             var distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
-            // Check if the player is within attack range
-
             if (distanceToPlayer > attackRange) return;
 
-            _playerHealthHandler.DealDamage(damageAmount);
+            //ToDo Play Animation
+            if (_sound) _sound.PlayAttackSound();
+
+            _playerHealthHandler.DealDamage(damage);
             _lastDamageTime = Time.time;
         }
     }

@@ -32,22 +32,10 @@ namespace Script.Player
         {
             if (!other.gameObject.CompareTag("Enemy")) return;
 
-            // Check if the collided object is an EnemyMovementTree
-            var enemyControllerTree = other.gameObject.GetComponent<EnemyMovementTree>();
-            if (enemyControllerTree != null)
-            {
-                enemyControllerTree.DealDamage(_ammunitionHandler.BulletDamage);
-                Destroy(gameObject);
-                return; // Exit early to avoid unnecessary checks
-            }
-
-            // Check if the collided object is an EnemyMovementZombie
-            var enemyControllerZombie = other.gameObject.GetComponent<EnemyMovementZombie>();
-            if (enemyControllerZombie != null)
-            {
-                enemyControllerZombie.DealDamage(_ammunitionHandler.BulletDamage);
-                Destroy(gameObject);
-            }
+            var enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+            if (enemyHealth == null) return;
+            enemyHealth.Damage(_ammunitionHandler.BulletDamage);
+            Destroy(gameObject);
         }
     }
 }
