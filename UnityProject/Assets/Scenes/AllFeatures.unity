@@ -12947,11 +12947,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1253119262}
   m_SourcePrefab: {fileID: 100100000, guid: f1422f5c6e1457147a73440f96e079ac, type: 3}
---- !u!1 &434847177 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5462324137239526807, guid: d78c3aca7c5239f47894f57fc35b8c18, type: 3}
-  m_PrefabInstance: {fileID: 1282263704}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &435493578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: f1422f5c6e1457147a73440f96e079ac, type: 3}
@@ -61033,11 +61028,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7677753592105365539}
   m_SourcePrefab: {fileID: 100100000, guid: 7fdf4be5e6b8b9f46a7bf03f3fbb3e8a, type: 3}
---- !u!1 &4483928384180176417 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2892631547508804823, guid: fba689b3412bb4176b332b034cf3303d, type: 3}
-  m_PrefabInstance: {fileID: 5010319604302853398}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4782845245120878045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61377,8 +61367,8 @@ MonoBehaviour:
   puzzleHint: {fileID: 1193255183}
   hasTheKey: 0
   enemyPrefabs:
-  - {fileID: 4483928384180176417}
-  - {fileID: 434847177}
+  - {fileID: 2892631547508804823, guid: fba689b3412bb4176b332b034cf3303d, type: 3}
+  - {fileID: 5462324137239526807, guid: d78c3aca7c5239f47894f57fc35b8c18, type: 3}
   enemySpawnPositions:
   - {x: 46, y: 4, z: -59.81}
   - {x: 66, y: 3, z: 39}
