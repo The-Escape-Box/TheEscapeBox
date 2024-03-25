@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using Script.Shop;
+using UnityEngine;
 using UnityEngine.AI;
 
-namespace Script
+namespace Script.Enemy
 {
     public class EnemyMovementZombie : MonoBehaviour
     {

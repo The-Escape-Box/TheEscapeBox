@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Script
+namespace Script.Player
 {
     public class Pistol : MonoBehaviour
     {

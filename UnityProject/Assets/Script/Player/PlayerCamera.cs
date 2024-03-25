@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Script
+namespace Script.Player
 {
     public class PlayerCamera : MonoBehaviour
     {

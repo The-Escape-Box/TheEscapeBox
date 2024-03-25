@@ -1,7 +1,10 @@
 using UnityEngine;
 using Script;
+using Script.Player;
 
-public class EnemyKillPlayer : MonoBehaviour{
+namespace Script.Enemy
+{
+public class EnemyAttak : MonoBehaviour{
     
     
     public float damageAmount = 10f; // Amount of damage to deal
@@ -36,4 +39,5 @@ public class EnemyKillPlayer : MonoBehaviour{
         _playerHealthHandler.DealDamage(damageAmount);
         _lastDamageTime = Time.time;
     }
+}
 }

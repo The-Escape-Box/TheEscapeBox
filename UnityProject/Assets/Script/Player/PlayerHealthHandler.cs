@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Script
+namespace Script.Player
 {
     public class PlayerHealthHandler : MonoBehaviour
     {

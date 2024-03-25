@@ -1,8 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
 
-namespace Script
+namespace Script.Shop
 {
     public class BloodBankHandler : MonoBehaviour
     {

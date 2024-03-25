@@ -1,21 +1,21 @@
 using TMPro;
 using UnityEngine;
 
-namespace Script
+namespace Script.Player
 {
     public class AmmunitionHandler : MonoBehaviour
     {
         public int initialAmmunition = 5;
         public float initialAmmunitionStunTime = 3F;
         public float initialBulletDamage = 1F;
-        public float initialBulletSpeed = 100F; // Add this line
+        public float initialBulletSpeed = 100F;
 
         public TMP_Text ammunitionText;
 
         public int Ammunition { get; set; }
         public float AmmunitionStunTime { get; set; }
         public float BulletDamage { get; set; }
-        public float BulletSpeed { get; set; } // Add this line
+        public float BulletSpeed { get; set; }
 
         public static AmmunitionHandler Instance { get; private set; }
 

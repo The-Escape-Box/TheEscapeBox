@@ -1,6 +1,7 @@
+using Script.Enemy;
 using UnityEngine;
 
-namespace Script
+namespace Script.Player
 {
     public class Bullet : MonoBehaviour
     {
