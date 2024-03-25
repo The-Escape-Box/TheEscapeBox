@@ -11,6 +11,5 @@ namespace Script.Utils
         {
             SceneManager.LoadScene(sceneNum);
         }
-        
     }
 }

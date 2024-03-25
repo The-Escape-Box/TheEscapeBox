@@ -8,7 +8,7 @@ namespace Script.Puzzle.First
     {
         public Light[] spotlights;
         public PuzzleHint puzzleHint; // Reference to the PuzzleHint script
-        public bool hasTheKey = false; // Variable to track if the key has been obtained
+        public bool hasTheKey; // Variable to track if the key has been obtained
         public List<GameObject> enemyPrefabs; // List of enemy prefabs
         public List<Vector3> enemySpawnPositions; // List of enemy spawn positions
         public float activationInterval = 10f; // Time interval between enemy activations
@@ -20,11 +20,9 @@ namespace Script.Puzzle.First
                 if (hasTheKey)
                 {
                     // Change the color of spotlights to FFD580
-                    foreach (Light spotlight in spotlights)
-                    {
-                        spotlight.color = new Color(1f, 0.839f, 0.502f); // FFD580 in RGB
-                    }
-                    string hintText = "Shit! you just turn the light on, you need to escape the box";
+                    foreach (var spotlight in
+                             spotlights) spotlight.color = new Color(1f, 0.839f, 0.502f); // FFD580 in RGB
+                    var hintText = "Shit! you just turn the light on, you need to escape the box";
                     puzzleHint.SetText(hintText); // Pass the printed text to the PuzzleHint script
 
                     // Start activating enemies at intervals
@@ -32,27 +30,27 @@ namespace Script.Puzzle.First
                 }
                 else
                 {
-                    string hintText = "A key is a solution!";
+                    var hintText = "A key is a solution!";
                     puzzleHint.SetText(hintText); // Pass the printed text to the PuzzleHint script
                 }
             }
         }
 
-        IEnumerator ActivateEnemiesRoutine()
+        private IEnumerator ActivateEnemiesRoutine()
         {
             while (true)
             {
                 yield return new WaitForSeconds(activationInterval);
 
-                int spawnPositionCount = enemySpawnPositions.Count;
+                var spawnPositionCount = enemySpawnPositions.Count;
                 if (spawnPositionCount > 0 && enemyPrefabs.Count > 0)
                 {
-                    int randomEnemyIndex = Random.Range(0, enemyPrefabs.Count);
-                    int randomPositionIndex = Random.Range(0, spawnPositionCount);
-                    Vector3 spawnPosition = enemySpawnPositions[randomPositionIndex];
+                    var randomEnemyIndex = Random.Range(0, enemyPrefabs.Count);
+                    var randomPositionIndex = Random.Range(0, spawnPositionCount);
+                    var spawnPosition = enemySpawnPositions[randomPositionIndex];
 
-                    GameObject enemyPrefab = enemyPrefabs[randomEnemyIndex];
-                    GameObject enemyInstance = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+                    var enemyPrefab = enemyPrefabs[randomEnemyIndex];
+                    var enemyInstance = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
                     enemyInstance.SetActive(true);
                 }
             }

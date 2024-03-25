@@ -7,7 +7,7 @@ namespace Script.Shop
     {
         public int initialBlood = 5;
         public TMP_Text bloodText;
-        
+
         public int Blood { get; set; }
 
         public static BloodBankHandler Instance { get; private set; }

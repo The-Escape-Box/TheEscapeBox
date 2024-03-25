@@ -6,8 +6,8 @@ namespace Script.Player
     public class Bullet : MonoBehaviour
     {
         public float maxFlyTime = 5;
-        public bool ReadyToFly { get; set; }
         private AmmunitionHandler _ammunitionHandler;
+        public bool ReadyToFly { get; set; }
 
         private void Start()
         {
@@ -33,7 +33,7 @@ namespace Script.Player
             if (!other.gameObject.CompareTag("Enemy")) return;
 
             // Check if the collided object is an EnemyMovementTree
-            EnemyMovementTree enemyControllerTree = other.gameObject.GetComponent<EnemyMovementTree>();
+            var enemyControllerTree = other.gameObject.GetComponent<EnemyMovementTree>();
             if (enemyControllerTree != null)
             {
                 enemyControllerTree.DealDamage(_ammunitionHandler.BulletDamage);
@@ -42,14 +42,12 @@ namespace Script.Player
             }
 
             // Check if the collided object is an EnemyMovementZombie
-            EnemyMovementZombie enemyControllerZombie = other.gameObject.GetComponent<EnemyMovementZombie>();
+            var enemyControllerZombie = other.gameObject.GetComponent<EnemyMovementZombie>();
             if (enemyControllerZombie != null)
             {
                 enemyControllerZombie.DealDamage(_ammunitionHandler.BulletDamage);
                 Destroy(gameObject);
-                return; // Exit early to avoid unnecessary checks
             }
         }
-
     }
 }

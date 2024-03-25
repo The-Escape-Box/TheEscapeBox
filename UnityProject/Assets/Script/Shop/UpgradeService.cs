@@ -5,8 +5,8 @@ namespace Script.Shop
 {
     public class UpgradeService : MonoBehaviour
     {
-        private BloodBankHandler _bloodBankHandler;
         private AmmunitionHandler _ammunitionHandler;
+        private BloodBankHandler _bloodBankHandler;
         private PlayerHealthHandler _playerHealthHandler;
 
         private void Start()
@@ -20,7 +20,7 @@ namespace Script.Shop
         {
             var blood = _bloodBankHandler.Blood;
             if (blood <= bloodCost) return;
-            
+
             _playerHealthHandler.Heal(50);
             _bloodBankHandler.Blood -= bloodCost;
         }
@@ -29,16 +29,16 @@ namespace Script.Shop
         {
             var blood = _bloodBankHandler.Blood;
             if (blood <= bloodCost) return;
-            
+
             _ammunitionHandler.Ammunition++;
             _bloodBankHandler.Blood -= bloodCost;
-        }        
-        
+        }
+
         public void UpgradeDamage(int bloodCost)
         {
             var blood = _bloodBankHandler.Blood;
             if (blood <= bloodCost) return;
-            
+
             _ammunitionHandler.BulletDamage++;
             _bloodBankHandler.Blood -= bloodCost;
         }

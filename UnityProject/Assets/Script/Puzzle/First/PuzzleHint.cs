@@ -10,7 +10,7 @@ namespace Script.Puzzle.First
         private TextMeshProUGUI textComponent;
         private Coroutine textCoroutine;
 
-        void Start()
+        private void Start()
         {
             textComponent = GetComponent<TextMeshProUGUI>();
             // Start the coroutine once at the beginning
@@ -18,12 +18,12 @@ namespace Script.Puzzle.First
         }
 
         // Coroutine to display text
-        IEnumerator DisplayTextRoutine()
+        private IEnumerator DisplayTextRoutine()
         {
             while (true)
             {
                 // Display text letter by letter
-                foreach (char letter in fullText)
+                foreach (var letter in fullText)
                 {
                     textComponent.text += letter;
                     yield return new WaitForSeconds(0.1f); // Adjust the delay between letters if needed

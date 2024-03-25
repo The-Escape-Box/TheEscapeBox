@@ -14,10 +14,7 @@ namespace Script.Shop
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                setInventoryActive(true);
-            }
+            if (Input.GetKeyDown(KeyCode.B)) setInventoryActive(true);
         }
 
         public void setInventoryActive(bool active)
@@ -30,6 +27,7 @@ namespace Script.Shop
                 Time.timeScale = 0;
                 return;
             }
+
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Time.timeScale = 1;
