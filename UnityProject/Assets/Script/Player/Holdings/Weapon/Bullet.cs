@@ -1,7 +1,7 @@
 using Script.Enemy;
 using UnityEngine;
 
-namespace Script.Player
+namespace Script.Player.Holdings.Weapon
 {
     public class Bullet : MonoBehaviour
     {

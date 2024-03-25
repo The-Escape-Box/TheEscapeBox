@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Script.Player
+namespace Script.Player.Holdings
 {
-    public class FlashlightController : MonoBehaviour
+    public class Flashlight : MonoBehaviour
     {
         public GameObject hand;
 
