@@ -54,7 +54,8 @@ namespace Script.Player
             Health -= damage;
             if (Health > 0) return;
 
-            Destroy(gameObject);
+            var player = GameObject.FindWithTag("Player");
+            Destroy(player);
             SceneManager.LoadScene(3);
         }
     }
