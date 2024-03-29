@@ -8,7 +8,7 @@ namespace Script.Player
         public int initialAmmunition = 5;
         public float initialAmmunitionStunTime = 3F;
         public float initialBulletDamage = 1F;
-        public float initialBulletSpeed = 100F;
+        public float initialBulletSpeed = 1000F;
 
         public TMP_Text ammunitionText;
 
