@@ -7,70 +7,74 @@ namespace Script.Player.Holdings.Weapon
         public Bullet bullet;
         public Transform bulletSpawnPoint;
         public GameObject arm;
-        public AudioSource audioSource; // Reference to the assigned AudioSource component
-        public Animator gunAnimator; // Reference to the Animator component
-        public ParticleSystem shootingParticles; // Reference to the Particle System
+        public AudioSource audioSource;
+        public Animator gunAnimator;
+        public ParticleSystem shootingParticles;
 
-        private AmmunitionHandler _ammunitionHandler; // Reference to the AmmunitionHandler script
+        private AmmunitionHandler _ammunitionHandler;
+        private bool isShooting = false;
 
-        private bool isShooting = false; // Flag to track if shooting is in progress
-
-        // Start is called before the first frame update
         private void Start()
         {
             _ammunitionHandler = AmmunitionHandler.Instance;
         }
 
-        // Update is called once per frame
-    
-
-private void Update()
-{
-    if (Time.timeScale == 0) return;
-
-    // Check if shooting action is initiated
-    if (Input.GetKeyDown(KeyCode.Mouse0))
-    {
-        isShooting = true; // Start shooting
-        print("is shooting:" + isShooting);
-        // Play the particle system
-        shootingParticles.Play();
-    }
-    
-    // Check if shooting action is stopped
-    if (Input.GetKeyUp(KeyCode.Mouse0))
-    {
-        isShooting = false; // Stop shooting
-        print("is shooting:" + isShooting);
-        shootingParticles.Stop(); // Stop particle system when shooting stops
-    }
-
-    // Check if shooting is in progress
-    if (isShooting)
-    {
-        var ammunition = _ammunitionHandler.Ammunition;
-        if (ammunition > 0)
+        private void Update()
         {
-            _ammunitionHandler.Ammunition = ammunition - 1;
-            var newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            audioSource.Play();
-            newBullet.ReadyToFly = true;
-        }
-        else
-        {
-            // Stop particle system if out of ammunition
-            shootingParticles.Stop();
-        }
-    }
-}
+            if (Time.timeScale == 0) return;
+            
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                StartShooting();
+            }
 
-        // LateUpdate is called once per frame after Update
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                StopShooting();
+            }
+        }
+
+        private void StartShooting()
+        {
+            if (!isShooting)
+            {
+                isShooting = true;
+                gunAnimator.SetTrigger("Shoot"); 
+                shootingParticles.Play();
+                ShootBullet();
+            }
+        }
+
+        private void StopShooting()
+        {
+            if (isShooting)
+            {
+                isShooting = false;
+                gunAnimator.SetTrigger("Shoot"); 
+                shootingParticles.Stop();
+            }
+        }
+
+        private void ShootBullet()
+        {
+            var ammunition = _ammunitionHandler.Ammunition;
+            if (ammunition > 0)
+            {
+                _ammunitionHandler.Ammunition = ammunition - 1;
+                var newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+                audioSource.Play();
+                newBullet.ReadyToFly = true;
+            }
+            else
+            {
+                // Optionally stop shooting if out of ammunition
+                StopShooting();
+            }
+        }
+
         private void LateUpdate()
         {
-            // Get the forward direction of the camera
             var playerViewDirection = Camera.main.transform.forward;
-
-            // Calculate the rotation needed to align the bullet spawn point with the player's view direction
             var targetRotation = Quaternion.LookRotation(playerViewDirection);
             bulletSpawnPoint.rotation = targetRotation;
 
