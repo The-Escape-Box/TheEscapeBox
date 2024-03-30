@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Script.Player.Holdings.Weapon
 {
-    public class gun : MonoBehaviour
+    public class Gun : MonoBehaviour
     {
         public Bullet bullet;
         public Transform bulletSpawnPoint;
@@ -17,41 +17,57 @@ namespace Script.Player.Holdings.Weapon
         private void Start()
         {
             _ammunitionHandler = AmmunitionHandler.Instance;
+            StopShooting();
+            audioSource.Stop();
         }
 
         private void Update()
         {
-            if (Time.timeScale == 0) return;
-            
+            if (Time.timeScale == 0)
+                return;
+
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 StartShooting();
             }
-
-            if (Input.GetKeyUp(KeyCode.Mouse0))
+            else if (Input.GetKeyUp(KeyCode.Mouse0))
             {
                 StopShooting();
             }
-        }
 
-        private void StartShooting()
-        {
-            if (!isShooting)
+            if (isShooting)
             {
-                isShooting = true;
-                gunAnimator.SetTrigger("Shoot"); 
-                shootingParticles.Play();
                 ShootBullet();
             }
         }
+
+   private void StartShooting()
+{
+    if (!isShooting)
+    {
+        isShooting = true;
+        gunAnimator.SetTrigger("Shoot");
+        shootingParticles.Play();
+        if (!audioSource.isPlaying)  // Check if the audio source is not already playing
+        {
+            audioSource.Play();  // Start playing audio only if it's not already playing
+        }
+       
+    }
+}
+
 
         private void StopShooting()
         {
             if (isShooting)
             {
                 isShooting = false;
-                gunAnimator.SetTrigger("Shoot"); 
+                gunAnimator.SetTrigger("Shoot");
                 shootingParticles.Stop();
+                if (audioSource.isPlaying)  // Stop playing audio only if it's currently playing
+                {
+                    audioSource.Stop();
+                }
             }
         }
 
@@ -61,25 +77,28 @@ namespace Script.Player.Holdings.Weapon
             if (ammunition > 0)
             {
                 _ammunitionHandler.Ammunition = ammunition - 1;
-                var newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-                audioSource.Play();
-                newBullet.ReadyToFly = true;
+                InstantiateBullet();
             }
             else
             {
-                // Optionally stop shooting if out of ammunition
                 StopShooting();
+                gunAnimator.SetTrigger("StopShooting");
             }
+        }
+
+        private void InstantiateBullet()
+        {
+            var newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            newBullet.ReadyToFly = true;
         }
 
         private void LateUpdate()
         {
             var playerViewDirection = Camera.main.transform.forward;
-            var targetRotation = Quaternion.LookRotation(playerViewDirection);
-            bulletSpawnPoint.rotation = targetRotation;
+            bulletSpawnPoint.rotation = Quaternion.LookRotation(playerViewDirection);
 
             var playerViewEulerAngles = Camera.main.transform.eulerAngles.x;
-            arm.transform.localEulerAngles = new Vector3(0F, -playerViewEulerAngles + 60, 0);
+            arm.transform.localEulerAngles = new Vector3(0f, -playerViewEulerAngles + 60f, 0f);
         }
     }
 }
