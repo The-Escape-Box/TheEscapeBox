@@ -14,11 +14,12 @@ namespace Script.Shop
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.B)) setInventoryActive(true);
+            if (Input.GetKeyDown(KeyCode.B)) toggleInventory();
         }
 
-        public void setInventoryActive(bool active)
+        public void toggleInventory()
         {
+            var active = !_shop.activeSelf;
             _shop.SetActive(active);
             if (active)
             {

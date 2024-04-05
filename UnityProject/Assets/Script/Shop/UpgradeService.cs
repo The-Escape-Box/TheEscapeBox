@@ -30,7 +30,7 @@ namespace Script.Shop
             var blood = _bloodBankHandler.Blood;
             if (blood <= bloodCost) return;
 
-            _ammunitionHandler.Ammunition++;
+            _ammunitionHandler.Ammunition += 256;
             _bloodBankHandler.Blood -= bloodCost;
         }
 

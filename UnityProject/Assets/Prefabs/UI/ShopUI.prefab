@@ -645,9 +645,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5347778929891349881}
-        m_TargetAssemblyTypeName: Script.ShopScript, Assembly-CSharp
-        m_MethodName: setInventoryActive
-        m_Mode: 6
+        m_TargetAssemblyTypeName: Script.Shop.ShopScript, Assembly-CSharp
+        m_MethodName: toggleInventory
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
