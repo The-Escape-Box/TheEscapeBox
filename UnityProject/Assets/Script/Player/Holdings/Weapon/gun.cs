@@ -89,6 +89,7 @@ namespace Script.Player.Holdings.Weapon
         private void InstantiateBullet()
         {
             var newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            newBullet.gameObject.tag = "Bullet"; 
             newBullet.ReadyToFly = true;
         }
 
