@@ -56,7 +56,7 @@ namespace Script.UI
 
             var player = GameObject.FindWithTag("Player");
             Destroy(player);
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene("GameOverScene");
         }
     }
 }

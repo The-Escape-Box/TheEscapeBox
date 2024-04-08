@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Script.Puzzle.First
@@ -12,6 +13,8 @@ namespace Script.Puzzle.First
         public List<GameObject> enemyPrefabs; // List of enemy prefabs
         public List<Vector3> enemySpawnPositions; // List of enemy spawn positions
         public float activationInterval = 10f; // Time interval between enemy activations
+
+        public GameObject portal;
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -27,6 +30,10 @@ namespace Script.Puzzle.First
 
                     // Start activating enemies at intervals
                     StartCoroutine(ActivateEnemiesRoutine());
+                    if (!portal.IsUnityNull())
+                    {
+                        portal.SetActive(true);
+                    }
                 }
                 else
                 {

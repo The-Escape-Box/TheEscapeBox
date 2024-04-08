@@ -11,7 +11,6 @@ namespace Script.UI.Overlays
         public bool SettingsOpen { get; set; }
         public bool ShopOpen { get; set; }
         
-
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -40,7 +39,7 @@ namespace Script.UI.Overlays
             }
         }
 
-        private void CheckGamePause()
+        public void CheckGamePause()
         {
             shopOverlay.SetActive(ShopOpen);
             settingsOverlay.SetActive(SettingsOpen);
