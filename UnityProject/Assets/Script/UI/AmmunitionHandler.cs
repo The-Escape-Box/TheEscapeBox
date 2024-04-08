@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Script.Player
+namespace Script.UI
 {
     public class AmmunitionHandler : MonoBehaviour
     {

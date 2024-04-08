@@ -1,3 +1,4 @@
+using Script.UI;
 using UnityEngine;
 
 namespace Script.Player.Holdings.Weapon

@@ -2,9 +2,9 @@ using Script.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Script.UIOverlays.Settings
+namespace Script.UI.Overlays.Settings
 {
-    public class MouseSensitivityControl : MonoBehaviour
+    public class MouseSenseControl : MonoBehaviour
     {
         private PlayerCamera _mouseSensitivityControl;
         private Slider _sensitivitySlider;
