@@ -1,7 +1,7 @@
 using Script.Player;
 using UnityEngine;
 
-namespace Script.Shop
+namespace Script.UIOverlays.Shop
 {
     public class UpgradeService : MonoBehaviour
     {

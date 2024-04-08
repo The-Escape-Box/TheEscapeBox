@@ -1,4 +1,4 @@
-using Script.Shop;
+using Script.UIOverlays.Shop;
 using UnityEngine;
 
 namespace Script.Enemy

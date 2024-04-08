@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Script.Shop
+namespace Script.UIOverlays.Shop
 {
     public class BloodBankHandler : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Script.Shop
+namespace Script.UIOverlays.Shop
 {
     public class ShopScript : MonoBehaviour
     {
