@@ -1,59 +1,51 @@
-using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.UI.Overlays
 {
     public class OverlayHandler : MonoBehaviour
     {
-        private GameObject _settingsOverlay;
-        private GameObject _shopOverlay;
+        [SerializeField]private GameObject settingsOverlay;
+        [SerializeField]private GameObject shopOverlay;
 
-        private bool _settingsOpen;
-        private bool _shopOpen;
-
-        private void Start()
-        {
-            _settingsOverlay = GameObject.FindWithTag("PauseMenu");
-            _shopOverlay = GameObject.FindWithTag("Shop");
-        }
+        public bool SettingsOpen { get; set; }
+        public bool ShopOpen { get; set; }
+        
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (_shopOpen)
+                if (ShopOpen)
                 {
-                    _shopOverlay.SetActive(false);
-                    _shopOpen = false;
+                    ShopOpen = false;
                     
                     CheckGamePause();
                     return;
                 }
 
-                _settingsOpen = !_settingsOverlay.activeSelf;
-                _settingsOverlay.SetActive(!_settingsOpen);
-                
+                SettingsOpen = !settingsOverlay.activeSelf;
                 CheckGamePause();
                 return;
             }           
             
             if (Input.GetKeyDown(KeyCode.B))
             {
-                if (_settingsOpen)
+                if (SettingsOpen)
                 {
                     return;
                 }
-                _shopOpen = !_shopOverlay.activeSelf;
-                _shopOverlay.SetActive(_shopOverlay);
-                
+                ShopOpen = !shopOverlay.activeSelf;
                 CheckGamePause();
             }
         }
 
         private void CheckGamePause()
         {
-            var isPause = _shopOpen || _settingsOpen;
-            if (isPause)
+            shopOverlay.SetActive(ShopOpen);
+            settingsOverlay.SetActive(SettingsOpen);
+            
+            if (ShopOpen || SettingsOpen)
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
