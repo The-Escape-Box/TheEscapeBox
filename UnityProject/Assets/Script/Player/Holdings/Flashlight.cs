@@ -10,7 +10,7 @@ namespace Script.Player.Holdings
         {
             var playerViewEulerAngles = Camera.main.transform.eulerAngles;
 
-            hand.transform.localEulerAngles = new Vector3(-90F, -playerViewEulerAngles.x, 0);
+            hand.transform.localEulerAngles = new Vector3(-90F, -playerViewEulerAngles.x -20, 0);
         }
     }
 }

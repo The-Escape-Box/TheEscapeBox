@@ -1,3 +1,4 @@
+using System.Collections;
 using Script.UI;
 using UnityEngine;
 
@@ -18,20 +19,27 @@ namespace Script.Player.Holdings.Weapon
         private void Start()
         {
             _ammunitionHandler = AmmunitionHandler.Instance;
-            StopShooting();
+            StartCoroutine(DelayedStopShooting(0.0F));
             audioSource.Stop();
         }
 
         private void Update()
         {
-            if (Time.timeScale == 0)
-                return;
+            if (Time.timeScale == 0) return;
 
             if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
                 StartShooting();
-            else if (Input.GetKeyUp(KeyCode.Mouse0)) StopShooting();
+            }
+            else if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                StartCoroutine(DelayedStopShooting(0.3f));
+            }
 
-            if (isShooting) ShootBullet();
+            if (isShooting)
+            {
+                ShootBullet();
+            }
         }
 
         private void LateUpdate()
@@ -55,14 +63,14 @@ namespace Script.Player.Holdings.Weapon
             }
         }
 
-
-        private void StopShooting()
+        private IEnumerator DelayedStopShooting(float delay)
         {
             if (isShooting)
             {
                 isShooting = false;
                 gunAnimator.SetTrigger("Shoot");
                 shootingParticles.Stop();
+            yield return new WaitForSeconds(delay); // Wait for the specified delay
                 if (audioSource.isPlaying) // Stop playing audio only if it's currently playing
                     audioSource.Stop();
             }
@@ -78,7 +86,7 @@ namespace Script.Player.Holdings.Weapon
             }
             else
             {
-                StopShooting();
+                StartCoroutine(DelayedStopShooting(0.0f));
                 gunAnimator.SetTrigger("StopShooting");
             }
         }
