@@ -13,7 +13,7 @@ namespace Script.Player.Holdings.Weapon
         public ParticleSystem shootingParticles;
 
         private AmmunitionHandler _ammunitionHandler;
-        private bool isShooting = false;
+        private bool isShooting;
 
         private void Start()
         {
@@ -28,34 +28,32 @@ namespace Script.Player.Holdings.Weapon
                 return;
 
             if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
                 StartShooting();
-            }
-            else if (Input.GetKeyUp(KeyCode.Mouse0))
-            {
-                StopShooting();
-            }
+            else if (Input.GetKeyUp(KeyCode.Mouse0)) StopShooting();
 
-            if (isShooting)
-            {
-                ShootBullet();
-            }
+            if (isShooting) ShootBullet();
         }
 
-   private void StartShooting()
-{
-    if (!isShooting)
-    {
-        isShooting = true;
-        gunAnimator.SetTrigger("Shoot");
-        shootingParticles.Play();
-        if (!audioSource.isPlaying)  // Check if the audio source is not already playing
+        private void LateUpdate()
         {
-            audioSource.Play();  // Start playing audio only if it's not already playing
+            var playerViewDirection = Camera.main.transform.forward;
+            bulletSpawnPoint.rotation = Quaternion.LookRotation(playerViewDirection);
+
+            var playerViewEulerAngles = Camera.main.transform.eulerAngles.x;
+            arm.transform.localEulerAngles = new Vector3(0f, -playerViewEulerAngles + 60f, 0f);
         }
-       
-    }
-}
+
+        private void StartShooting()
+        {
+            if (!isShooting)
+            {
+                isShooting = true;
+                gunAnimator.SetTrigger("Shoot");
+                shootingParticles.Play();
+                if (!audioSource.isPlaying) // Check if the audio source is not already playing
+                    audioSource.Play(); // Start playing audio only if it's not already playing
+            }
+        }
 
 
         private void StopShooting()
@@ -65,10 +63,8 @@ namespace Script.Player.Holdings.Weapon
                 isShooting = false;
                 gunAnimator.SetTrigger("Shoot");
                 shootingParticles.Stop();
-                if (audioSource.isPlaying)  // Stop playing audio only if it's currently playing
-                {
+                if (audioSource.isPlaying) // Stop playing audio only if it's currently playing
                     audioSource.Stop();
-                }
             }
         }
 
@@ -91,15 +87,6 @@ namespace Script.Player.Holdings.Weapon
         {
             var newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             newBullet.ReadyToFly = true;
-        }
-
-        private void LateUpdate()
-        {
-            var playerViewDirection = Camera.main.transform.forward;
-            bulletSpawnPoint.rotation = Quaternion.LookRotation(playerViewDirection);
-
-            var playerViewEulerAngles = Camera.main.transform.eulerAngles.x;
-            arm.transform.localEulerAngles = new Vector3(0f, -playerViewEulerAngles + 60f, 0f);
         }
     }
 }
