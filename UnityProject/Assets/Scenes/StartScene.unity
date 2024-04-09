@@ -488,6 +488,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letterDelay: 0.1
+  texts:
+  - You want to escape your dreams to reality?
+  - That is wrong and if you don't believe me!
+  - I will prove it to you
 --- !u!114 &619360527
 MonoBehaviour:
   m_ObjectHideFlags: 0
