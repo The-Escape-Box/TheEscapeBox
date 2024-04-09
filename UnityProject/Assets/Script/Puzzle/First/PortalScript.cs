@@ -11,7 +11,7 @@ namespace Script.Puzzle.First
         {
             if (other.gameObject.CompareTag("Player"))
             { 
-                SceneManager.LoadScene("SecondMap");
+                SceneManager.LoadScene("FirstToSecond");
             }
             
         }
