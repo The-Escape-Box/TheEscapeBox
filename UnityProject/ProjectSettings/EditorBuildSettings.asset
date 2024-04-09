@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 978e8c6648e113e4da1ca445e88a6e27
   - enabled: 1
-    path: Assets/Scenes/AllFeatures.unity
+    path: Assets/Scenes/StartToFirst.unity
+    guid: 912232d81089e4646a3929eb6ac6ab10
+  - enabled: 1
+    path: Assets/Scenes/FirstMap.unity
     guid: 7aa9e2f525b8742348444558b68c32dd
+  - enabled: 1
+    path: Assets/Scenes/FirstToSecond.unity
+    guid: 1ce74e4bf70c440a6b110e70996c4118
   - enabled: 1
     path: Assets/Scenes/SecondMap.unity
     guid: 30fb6719a9eb1d84a807a42d598b16f8
