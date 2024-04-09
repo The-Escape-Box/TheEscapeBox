@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 978e8c6648e113e4da1ca445e88a6e27
   - enabled: 1
+    path: Assets/Scenes/AllFeatures.unity
+    guid: 7aa9e2f525b8742348444558b68c32dd
+  - enabled: 1
     path: Assets/Scenes/SecondMap.unity
     guid: 30fb6719a9eb1d84a807a42d598b16f8
   - enabled: 1
@@ -17,7 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOverScene.unity
     guid: 00c3eb96334275e4197e97fd17cb734d
-  - enabled: 1
-    path: Assets/Scenes/AllFeatures.unity
-    guid: 7aa9e2f525b8742348444558b68c32dd
   m_configObjects: {}

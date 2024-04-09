@@ -1,4 +1,4 @@
-using Script.Shop;
+using Script.UI;
 using UnityEngine;
 
 namespace Script.Enemy

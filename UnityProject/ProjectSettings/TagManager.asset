@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - TransformerBox
   - Key
+  - PauseMenu
+  - Shop
   layers:
   - Default
   - TransparentFX
