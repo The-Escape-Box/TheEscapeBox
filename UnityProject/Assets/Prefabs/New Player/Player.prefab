@@ -1343,8 +1343,7 @@ GameObject:
   - component: {fileID: 3162674989430095936}
   - component: {fileID: 4051591165505471935}
   - component: {fileID: 7556724361196229087}
-  - component: {fileID: 563766950162380597}
-  - component: {fileID: 9209776716022103983}
+  - component: {fileID: 323622720357384717}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1439,8 +1438,8 @@ MonoBehaviour:
   movementSpeed: 5
   gravity: -9.81
   groundDistance: 0.4
---- !u!136 &563766950162380597
-CapsuleCollider:
+--- !u!65 &323622720357384717
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1454,27 +1453,12 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9209776716022103983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5163757338651356317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b28417983c26d545bf0f782cbeb4cb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puzzleManager: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.8242416, z: 1}
+  m_Center: {x: 0, y: 0.9339013, z: 0}
 --- !u!1 &5433807160914175209
 GameObject:
   m_ObjectHideFlags: 0

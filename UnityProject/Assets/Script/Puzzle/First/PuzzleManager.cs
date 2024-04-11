@@ -31,7 +31,7 @@ namespace Script.Puzzle.First
                 // Change the color of spotlights to FFD580
                 foreach (var spotlight in
                          spotlights) spotlight.color = new Color(1f, 0.839f, 0.502f); // FFD580 in RGB
-                var hintText = "Shit! you just turn the light on, you need to escape the box";
+                var hintText = "Shit! you just turn the light on, you need to find the portal.";
                 puzzleHint.SetText(hintText); // Pass the printed text to the PuzzleHint script
 
                 // Start let spawn more enemys

@@ -653,12 +653,13 @@ GameObject:
   - component: {fileID: 796212673595162183}
   - component: {fileID: 5398729114076209528}
   - component: {fileID: 7334633371321827144}
-  - component: {fileID: 7243764259371786623}
   - component: {fileID: 2578869202925206463}
   - component: {fileID: 4678497004295193408}
   - component: {fileID: 3795765342935882513}
   - component: {fileID: 5585939400804157633}
   - component: {fileID: 3997294144104727678}
+  - component: {fileID: 7243764259371786623}
+  - component: {fileID: -6158639951277958235}
   m_Layer: 0
   m_Name: Demon
   m_TagString: Enemy
@@ -726,27 +727,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &7243764259371786623
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2892631547508804823}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.228495, y: 5, z: 3}
-  m_Center: {x: 0.11424738, y: 2, z: 0}
 --- !u!82 &2578869202925206463
 AudioSource:
   m_ObjectHideFlags: 0
@@ -900,6 +880,54 @@ MonoBehaviour:
   damage: 10
   damageInterval: 1
   attackRange: 2
+--- !u!65 &7243764259371786623
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2892631547508804823}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.228495, y: 5, z: 3}
+  m_Center: {x: 0.11424738, y: 2, z: 0}
+--- !u!54 &-6158639951277958235
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2892631547508804823}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3452871254162229529
 GameObject:
   m_ObjectHideFlags: 0
