@@ -13,7 +13,6 @@ namespace Script.Puzzle.First
             { 
                 SceneManager.LoadScene("FirstToSecond");
             }
-            
         }
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Key
   - PauseMenu
   - Shop
+  - GUIKey
   layers:
   - Default
   - TransparentFX

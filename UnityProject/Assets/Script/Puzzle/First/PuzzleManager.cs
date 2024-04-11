@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Script.Puzzle.First
 {
@@ -12,34 +14,37 @@ namespace Script.Puzzle.First
         public bool hasTheKey; // Variable to track if the key has been obtained
         public List<GameObject> enemyPrefabs; // List of enemy prefabs
         public List<Vector3> enemySpawnPositions; // List of enemy spawn positions
-        public float activationInterval = 10f; // Time interval between enemy activations
+        public float activationInterval = 15f; // Time interval between enemy activations
 
         public GameObject portal;
 
-        private void OnCollisionEnter(Collision collision)
+        private void Start()
         {
-            if (collision.gameObject.name == "Player")
-            {
-                if (hasTheKey)
-                {
-                    // Change the color of spotlights to FFD580
-                    foreach (var spotlight in
-                             spotlights) spotlight.color = new Color(1f, 0.839f, 0.502f); // FFD580 in RGB
-                    var hintText = "Shit! you just turn the light on, you need to escape the box";
-                    puzzleHint.SetText(hintText); // Pass the printed text to the PuzzleHint script
+            StartCoroutine(ActivateEnemiesRoutine());
+        }
 
-                    // Start activating enemies at intervals
-                    StartCoroutine(ActivateEnemiesRoutine());
-                    if (!portal.IsUnityNull())
-                    {
-                        portal.SetActive(true);
-                    }
-                }
-                else
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!other.gameObject.CompareTag("Player")) return;
+            if (hasTheKey)
+            {
+                // Change the color of spotlights to FFD580
+                foreach (var spotlight in
+                         spotlights) spotlight.color = new Color(1f, 0.839f, 0.502f); // FFD580 in RGB
+                var hintText = "Shit! you just turn the light on, you need to escape the box";
+                puzzleHint.SetText(hintText); // Pass the printed text to the PuzzleHint script
+
+                // Start let spawn more enemys
+                activationInterval = 10F;
+                if (!portal.IsUnityNull())
                 {
-                    var hintText = "A key is a solution!";
-                    puzzleHint.SetText(hintText); // Pass the printed text to the PuzzleHint script
+                    portal.SetActive(true);
                 }
+            }
+            else
+            {
+                var hintText = "A key is a solution!";
+                puzzleHint.SetText(hintText); // Pass the printed text to the PuzzleHint script
             }
         }
 

@@ -44,11 +44,11 @@ namespace Script.Player.Holdings.Weapon
 
         private void LateUpdate()
         {
-            var playerViewDirection = Camera.main.transform.forward;
-            bulletSpawnPoint.rotation = Quaternion.LookRotation(playerViewDirection);
-
             var playerViewEulerAngles = Camera.main.transform.eulerAngles.x;
             arm.transform.localEulerAngles = new Vector3(0f, -playerViewEulerAngles + 60f, 0f);
+            
+            var playerViewDirection = Camera.main.transform.forward;
+            bulletSpawnPoint.rotation = Quaternion.LookRotation(playerViewDirection);
         }
 
         private void StartShooting()
