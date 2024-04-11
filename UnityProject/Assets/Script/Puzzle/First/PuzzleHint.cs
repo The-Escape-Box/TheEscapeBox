@@ -1,20 +1,38 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement; // Include this for scene management
 
 namespace Script.Puzzle.First
 {
     public class PuzzleHint : MonoBehaviour
     {
-        private string fullText = "Unleash the power of electricity!";
+        private string fullText;
         private TextMeshProUGUI textComponent;
         private Coroutine textCoroutine;
 
         private void Start()
         {
             textComponent = GetComponent<TextMeshProUGUI>();
+            SetInitialText();
             // Start the coroutine once at the beginning
             textCoroutine = StartCoroutine(DisplayTextRoutine());
+        }
+
+        // Set the initial text based on the scene number
+        private void SetInitialText()
+        {
+            // Get the current active scene number
+            int sceneNumber = SceneManager.GetActiveScene().buildIndex;
+            // Check if the current scene is number 4
+            if (sceneNumber == 4)
+            {
+                fullText = "Discover the cause you have been fighting for your entire life";
+            }
+            else
+            {
+                fullText = "Unleash the power of electricity!";
+            }
         }
 
         // Coroutine to display text
