@@ -6,7 +6,7 @@ namespace Script.Player.Holdings.Weapon
 {
     public class Bullet : MonoBehaviour
     {
-        public float maxFlyTime = 5;
+        public float maxFlyTime = 1.5F;
         private AmmunitionHandler _ammunitionHandler;
         public bool ReadyToFly { get; set; }
 
