@@ -14,7 +14,6 @@ public class SleepSound : MonoBehaviour
         if (player != null)
         {
             float distance = Vector3.Distance(transform.position, player.transform.position); // Calculate the distance
-            print(distance);
             if (distance <= triggerDistance && !audioSource.isPlaying)
             {
                 audioSource.Play(); // Play the sound if too close and not already playing

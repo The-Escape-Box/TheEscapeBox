@@ -71,17 +71,10 @@ public class StatTracker : MonoBehaviour
 
     public void ShowStats(StatAnzeige anzeige)
     {
-        if (firstMapDone)
-        {
             anzeige.firstTime.text = "Time for first map: " + _firstMapTime + " seconds";
             anzeige.firstKills.text = "Kills on first map: " + _firstMapKillCount;
-        }
-
-        if (secondMapDone)
-        {
             anzeige.secondTime.text = "Time for second map: " + _secondMapTime + " seconds";
             anzeige.secondKills.text = "Kills on second map: " +_secondMapKillCount;
-
-        }
+            anzeige.info.text = "Please share this information with us!";
     }
 }

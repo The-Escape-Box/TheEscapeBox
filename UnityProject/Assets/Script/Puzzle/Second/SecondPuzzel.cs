@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,12 @@ public class SecondPuzzle : MonoBehaviour
 {
     // Public variable to assign the player object in the Unity Editor
     public Transform player;
+    private StatTracker _statTracker;
+
+    private void Start()
+    {
+        _statTracker = StatTracker.Instance;
+    }
 
     void Update()
     {
@@ -14,11 +21,13 @@ public class SecondPuzzle : MonoBehaviour
         {
             // Calculate the distance between the current object's position and the player's position
             float distance = Vector3.Distance(transform.position, player.position);
+            print(distance);
             
-            if(distance <=1)
+            if(distance <=5)
             {
                 print("now load the scene");
-              //  SceneManager. LoadScene(5);
+                _statTracker.OnSceneChangeTo(5);
+                SceneManager. LoadScene(5);
             }
           
         }
