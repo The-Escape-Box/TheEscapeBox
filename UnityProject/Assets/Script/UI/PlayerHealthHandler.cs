@@ -19,6 +19,7 @@ namespace Script.UI
         private Image HealthBar { get; set; }
         private TMP_Text HealthBarText { get; set; }
 
+        private StatTracker _statTracker;
         public static PlayerHealthHandler Instance { get; private set; }
 
         private void Awake()
@@ -30,6 +31,7 @@ namespace Script.UI
             }
 
             Instance = this;
+            Instance._statTracker = StatTracker.Instance;
             Instance.Health = health;
             Instance.MaxHealth = maxHealth;
             Instance.HealthBar = healthBar;
@@ -56,6 +58,8 @@ namespace Script.UI
 
             var player = GameObject.FindWithTag("Player");
             Destroy(player);
+            
+            _statTracker.OnSceneChangeTo(5);
             SceneManager.LoadScene("GameOverScene");
         }
     }

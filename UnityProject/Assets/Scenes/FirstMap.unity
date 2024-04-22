@@ -78841,9 +78841,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6726118551447223473, guid: 5347b63d8a30840ad8165e36a5d94f44, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6726118551447223473, guid: 5347b63d8a30840ad8165e36a5d94f44, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 404156648}
+    - target: {fileID: 6726118551447223473, guid: 5347b63d8a30840ad8165e36a5d94f44, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6726118551447223473, guid: 5347b63d8a30840ad8165e36a5d94f44, type: 3}
       propertyPath: healthBarText
       value: 

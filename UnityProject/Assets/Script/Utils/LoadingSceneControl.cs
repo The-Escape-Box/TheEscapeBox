@@ -9,8 +9,11 @@ namespace Script.Utils
     {
         [SerializeField] private int sceneToLoad;
 
+        private StatTracker _statTracker;
+
         private void Start()
         {
+            _statTracker = StatTracker.Instance;
             var videoPlayer = GetComponent<VideoPlayer>();
             if(videoPlayer != null)
             {
@@ -43,7 +46,9 @@ namespace Script.Utils
         void OnVideoEnd(VideoPlayer vp)
         {
             // The video has finished playing, activate the loaded scene
+            _statTracker.OnSceneChangeTo(sceneToLoad);
             SceneManager.LoadScene(sceneToLoad);
+
         }
     }
 
