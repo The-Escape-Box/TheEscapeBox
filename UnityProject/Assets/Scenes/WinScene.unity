@@ -907,6 +907,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 467915727}
     m_Modifications:
+    - target: {fileID: 1156915300709100135, guid: 4ec10bfb3eaf0478295fba556a8959f9, type: 3}
+      propertyPath: m_text
+      value: bla
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156915300709100135, guid: 4ec10bfb3eaf0478295fba556a8959f9, type: 3}
+      propertyPath: m_margin.x
+      value: -291.57703
+      objectReference: {fileID: 0}
     - target: {fileID: 1468669891221284274, guid: 4ec10bfb3eaf0478295fba556a8959f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 768
@@ -947,9 +955,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2347056650056576733, guid: 4ec10bfb3eaf0478295fba556a8959f9, type: 3}
+      propertyPath: m_text
+      value: bla
+      objectReference: {fileID: 0}
     - target: {fileID: 2359312281551673808, guid: 4ec10bfb3eaf0478295fba556a8959f9, type: 3}
       propertyPath: m_Name
       value: StatAnzeige
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109649791328550737, guid: 4ec10bfb3eaf0478295fba556a8959f9, type: 3}
+      propertyPath: m_text
+      value: bla
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109649791328550737, guid: 4ec10bfb3eaf0478295fba556a8959f9, type: 3}
+      propertyPath: m_margin.x
+      value: -287.83466
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575326739366869770, guid: 4ec10bfb3eaf0478295fba556a8959f9, type: 3}
+      propertyPath: m_text
+      value: bla
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575326739366869770, guid: 4ec10bfb3eaf0478295fba556a8959f9, type: 3}
+      propertyPath: m_margin.x
+      value: -360.30148
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360041827265660777, guid: 4ec10bfb3eaf0478295fba556a8959f9, type: 3}
+      propertyPath: m_text
+      value: bla
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360041827265660777, guid: 4ec10bfb3eaf0478295fba556a8959f9, type: 3}
+      propertyPath: m_margin.x
+      value: -361.29898
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

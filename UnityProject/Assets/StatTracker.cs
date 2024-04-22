@@ -71,9 +71,9 @@ public class StatTracker : MonoBehaviour
 
     public void ShowStats(StatAnzeige anzeige)
     {
-            anzeige.firstTime.text = "Time for first map: " + _firstMapTime + " seconds";
+            anzeige.firstTime.text = "Time for first map: " + Mathf.Ceil(_firstMapTime) + " seconds";
             anzeige.firstKills.text = "Kills on first map: " + _firstMapKillCount;
-            anzeige.secondTime.text = "Time for second map: " + _secondMapTime + " seconds";
+            anzeige.secondTime.text = "Time for second map: " + Mathf.Ceil(_secondMapTime) + " seconds";
             anzeige.secondKills.text = "Kills on second map: " +_secondMapKillCount;
             anzeige.info.text = "Please share this information with us!";
     }
